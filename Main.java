@@ -17,9 +17,6 @@ public class Main {
 
             switch (choice) {
                 case "1":
-                    System.out.print("ID: ");
-                    int id = Integer.parseInt(scanner.nextLine());
-
                     System.out.print("Name: ");
                     String name = scanner.nextLine();
 
@@ -32,7 +29,7 @@ public class Main {
                     System.out.print("Schedule: ");
                     String sched = scanner.nextLine();
 
-                    Employee e = new Employee(id, name, role, salary, sched);
+                    Employee e = new Employee(name, role, salary, sched);
                     system.add(e);
                     break;
 
@@ -41,14 +38,14 @@ public class Main {
                     break;
 
                 case "3":
-                    System.out.print("Enter ID to edit: ");
-                    int editId = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Enter ID to edit (e.g. A001): ");
+                    String editId = scanner.nextLine();
                     system.edit(editId, scanner);
                     break;
 
                 case "4":
-                    System.out.print("Enter ID to delete: ");
-                    int delId = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Enter ID to delete (e.g. A001): ");
+                    String delId = scanner.nextLine();
                     system.delete(delId);
                     break;
 
