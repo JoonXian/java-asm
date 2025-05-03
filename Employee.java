@@ -1,24 +1,19 @@
 public class Employee {
-    int employeeId;
+    int id;
     String name;
     String role;
     double salary;
-    String workSchedule;
+    String schedule;
 
-    public Employee(int employeeId, String name, String role, double salary, String workSchedule) {
-        this.employeeId = employeeId;
+    public Employee(int id, String name, String role, double salary, String schedule) {
+        this.id = id;
         this.name = name;
         this.role = role;
         this.salary = salary;
-        this.workSchedule = workSchedule;
+        this.schedule = schedule;
     }
 
-    @Override
     public String toString() {
-        return "ID: " + employeeId +
-               ", Name: " + name +
-               ", Role: " + role +
-               ", Salary: RM" + salary +
-               ", Schedule: " + workSchedule;
+        return "ID: " + id + ", Name: " + name + ", Role: " + role + ", Salary: RM" + salary + ", Schedule: " + schedule;
     }
 }
