@@ -20,6 +20,11 @@ public class Main {
                     System.out.print("Name: ");
                     String name = scanner.nextLine();
 
+                    if (system.nameExists(name)) {
+                        System.out.println("An employee with that name already exists.");
+                        break;
+                    }
+
                     System.out.print("Role: ");
                     String role = scanner.nextLine();
 
@@ -50,7 +55,7 @@ public class Main {
                     break;
 
                 case "5":
-                    System.out.println("Goodbye! Thank you for using the system.");
+                    System.out.println("Goodbye!");
                     scanner.close();
                     return;
 

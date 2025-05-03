@@ -2,11 +2,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HotelEmployeeSystem {
-    ArrayList list = new ArrayList(); // Raw type (as requested)
+    ArrayList list = new ArrayList();
 
     void add(Employee e) {
         list.add(e);
         System.out.println("Employee added successfully. ID: " + e.id);
+    }
+
+    boolean nameExists(String name) {
+        for (Object obj : list) {
+            Employee e = (Employee) obj;
+            if (e.name.equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     void showAll() {
@@ -35,7 +45,13 @@ public class HotelEmployeeSystem {
 
                 System.out.print("New name [press Enter to keep current]: ");
                 String name = sc.nextLine();
-                if (!name.isEmpty()) e.name = name;
+                if (!name.isEmpty()) {
+                    if (nameExists(name)) {
+                        System.out.println("Another employee with this name already exists.");
+                    } else {
+                        e.name = name;
+                    }
+                }
 
                 System.out.print("New role [press Enter to keep current]: ");
                 String role = sc.nextLine();
@@ -52,7 +68,7 @@ public class HotelEmployeeSystem {
                 String sched = sc.nextLine();
                 if (!sched.isEmpty()) e.schedule = sched;
 
-                System.out.println("Employee updated successfully.");
+                System.out.println("✅ Employee updated successfully.");
                 return;
             }
         }
@@ -63,9 +79,8 @@ public class HotelEmployeeSystem {
         for (int i = 0; i < list.size(); i++) {
             Employee e = (Employee) list.get(i);
             if (e.id.equalsIgnoreCase(id)) {
-                System.out.println("Deleting Employee: " + e.name + " (ID: " + id + ")");
                 list.remove(i);
-                System.out.println("Employee deleted successfully.");
+                System.out.println("✅ Employee deleted successfully.");
                 return;
             }
         }
